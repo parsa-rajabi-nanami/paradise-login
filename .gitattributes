@@ -1,0 +1,7 @@
+* text=auto eol=lf
+
+# Keep development-only files out of git archive exports.
+.github/ export-ignore
+docs/ export-ignore
+AGENTS.md export-ignore
+.* export-ignore

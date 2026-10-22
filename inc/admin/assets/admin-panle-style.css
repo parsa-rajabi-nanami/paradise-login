@@ -1,0 +1,95 @@
+form#form_settings_PLWN {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form#form_settings_PLWN h2 {
+    margin: 0px;
+    font-size: 18px;
+    line-height: 1.8em;
+
+}
+
+form#form_settings_PLWN table {
+    margin: 0px;
+}
+
+form#form_settings_PLWN p.introduce {
+    margin: 0px;
+    font-size: 12px;
+    color: gray;
+}
+
+form#form_settings_PLWN tbody tr:nth-child(odd) {
+    background-color: #ededed;
+}
+
+form#form_settings_PLWN tbody tr:nth-child(even) {
+    background-color: #fdfdfd;
+}
+
+form#form_settings_PLWN th {
+    padding: 10px;
+    vertical-align: middle;
+}
+
+#PLWN-logo-preview-image {
+    width: 50px;
+    height: 50px;
+}
+
+form#form_settings_PLWN td {
+    margin-bottom: 9px;
+    padding: 10px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0px;
+}
+
+form#form_settings_PLWN td p.PLWN_info {
+    font-size: 10px;
+    color: gray;
+    direction: ltr;
+    width: 100%;
+    margin: 0px;
+}
+
+form#form_settings_PLWN td input[type="text"],
+form#form_settings_PLWN td input[type="number"] {
+    width: 100%;
+    font-size: 13px;
+    color: black;
+    border: none;
+}
+
+form#form_settings_PLWN td select#sms_sending_developer_mode {
+    width: auto;
+    border: none;
+    background-color: black;
+    color: white;
+
+}
+
+form#form_settings_PLWN td #sms_sending_redirect_login {
+    width: 100%;
+    direction: ltr;
+    border: none;
+    line-height: 1.8em;
+    font-size: 14px;
+    color: black;
+    padding: 10px;
+}
+
+form#form_settings_PLWN td #sms_sending_user_role {
+    background-color: #e9ecef;
+    border: none;
+}

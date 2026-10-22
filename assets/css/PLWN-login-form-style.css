@@ -1,0 +1,120 @@
+#PLWN-login-form-box {
+    width: 100%;
+    max-width: 350px;
+    height: 100%;
+    margin: 30px auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: white;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+#PLWN-login-form-box img#logo_site {
+    max-height: 80px;
+    object-fit: contain;
+}
+
+#PLWN-login-form-box h1 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.8em;
+    text-align: center;
+    margin: 0px;
+}
+
+#PLWN-login-form-box #PLWN-login-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+#PLWN-login-form-box #container-inputs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+#PLWN-login-form-box input {
+    border: 1px solid #e4e4e4;
+    border-radius: 5px;
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+}
+
+#PLWN-login-form-box input.PLWN-login-form-tel {
+    letter-spacing: 5px;
+}
+
+#PLWN-login-form-box button#PLWN-login-form-submit {
+    position: relative;
+    border: none;
+    padding: 7px 20px;
+    text-align: center;
+    vertical-align: middle;
+    min-width: 200px;
+    width: 100%;
+    border-radius: 5px;
+    background-color: #0066ff;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+#PLWN-login-form-box button#PLWN-login-form-submit .loader {
+    display: block;
+    height: 20px !important;
+    width: 100%;
+    position: relative;
+}
+
+#PLWN-login-form-box button#PLWN-login-form-submit .loader::before {
+    width: 20px !important;
+    height: 20px !important;
+    margin-top: -10px !important;
+    margin-right: -10px !important;
+    border: 3px solid #fff !important;
+    border-top-color: var(--pt-primary-color) !important;
+}
+
+#PLWN-login-form-box .resend_box {
+    display: none;
+}
+
+#PLWN-login-form-box #resend_box_btn {
+    font-size: 14px;
+    line-height: 1.8em;
+    display: none;
+    cursor: pointer;
+}
+
+#PLWN-login-form-box #respone_box:empty {
+    display: none;
+}
+
+#PLWN-login-form-box #respone_box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+    font-size: 13px;
+    line-height: 1.7em;
+    text-align: center;
+    width: 100%;
+    text-align: center;
+    background-color: #e9ecef;
+    padding: 10px 5px;
+    border: 1px dashed #ced4da;
+    border-radius: 5px;
+}

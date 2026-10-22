@@ -1,0 +1,189 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: sign in and sign up with number\n"
+"POT-Creation-Date: 2024-09-03 17:59+0330\n"
+"PO-Revision-Date: 2024-09-03 18:00+0330\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: paradise-login-with-numbers.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: inc/admin/core-admin.php:11
+msgid "PLWN Manager"
+msgstr "مدیریت PLWN"
+
+#: inc/admin/core-admin.php:12
+msgid "PLWN Dashboard"
+msgstr "داشبورد PLWN"
+
+#: inc/admin/core-admin.php:25
+msgid "PLWN settings"
+msgstr "تنظیمات PLWN"
+
+#: inc/admin/core-admin.php:44
+msgid "Settings section"
+msgstr "بخش تنظیمات"
+
+#: inc/admin/core-admin.php:51
+msgid "API received from SMS gateway"
+msgstr "API دریافت شده از درگاه پیامک"
+
+#: inc/admin/core-admin.php:59
+msgid "set logo for login form"
+msgstr "تنظیم لوگو برای فرم ورود"
+
+#: inc/admin/core-admin.php:67
+msgid "The duration between sending SMS"
+msgstr "مدت زمان بین ارسال پیامک"
+
+#: inc/admin/core-admin.php:75
+msgid "Star developer mode"
+msgstr "فعال سازی Developer Mode"
+
+#: inc/admin/core-admin.php:83
+msgid "Links with mandatory entry"
+msgstr "پیوندهای با ورود اجباری"
+
+#: inc/admin/core-admin.php:91
+msgid "Links your login page"
+msgstr "لینک صفحه ورود"
+
+#: inc/admin/core-admin.php:99
+msgid "number of digits of Otp code"
+msgstr "تعداد ارقام کد تایید"
+
+#: inc/admin/core-admin.php:107
+msgid "User role"
+msgstr "نقش کاربران"
+
+#: inc/admin/core-admin.php:115
+msgid "Pattern number"
+msgstr "پترن شماره تماس"
+
+#: inc/admin/core-admin.php:123
+msgid "sample of number"
+msgstr "نمونه شماره تماس"
+
+#: inc/admin/core-admin.php:131
+msgid "country code"
+msgstr "کد کشور"
+
+#: inc/admin/core-admin.php:182
+msgid "Select a image"
+msgstr "یک تصویر را انتخاب کنید"
+
+#: inc/admin/core-admin.php:218
+msgid "ON"
+msgstr "فعال"
+
+#: inc/admin/core-admin.php:220
+msgid "OFF"
+msgstr "غیر فعال"
+
+#: inc/admin/core-admin.php:327
+msgid "PLWN meta box"
+msgstr "اطلاعات مورد نیاز افزونه PLWN"
+
+#: inc/admin/core-admin.php:330
+msgid "Phone number"
+msgstr "شماره تماس"
+
+#: inc/admin/core-admin.php:335
+msgid "Please enter your phone number."
+msgstr "لطفا شماره تلفن خود را وارد کنید."
+
+#: inc/class/send-sms-user.php:25
+msgid "Sms sent successfully"
+msgstr "اس ام اس با موفقیت ارسال شد"
+
+#: inc/class/send-sms-user.php:26
+msgid "Submit Code"
+msgstr "ارسال کد"
+
+#: inc/class/send-sms-user.php:27
+msgid "Inter Otp Code!"
+msgstr "کد تایید خود را وارد کنید!"
+
+#: inc/class/send-sms-user.php:33
+msgid "Failure to communicate with the operator!"
+msgstr "عدم برقراری ارتباط با اپراتور!"
+
+#: inc/class/send-sms-user.php:34 inc/class/send-sms-user.php:41
+#: inc/class/user-login-sing-up.php:42 inc/class/user-login-sing-up.php:65
+#: inc/class/user-login-sing-up.php:106 inc/class/user-login-sing-up.php:121
+#: inc/class/user-login-sing-up.php:129
+msgid "Try again"
+msgstr "دوباره امتحان کنید"
+
+#: inc/class/send-sms-user.php:40 inc/class/user-login-sing-up.php:105
+msgid "Error! Try again in a few seconds"
+msgstr "خطا! چند ثانیه دیگر دوباره امتحان کنید"
+
+#: inc/class/user-login-sing-up.php:41 inc/class/user-login-sing-up.php:64
+msgid "There was a problem logging in!"
+msgstr "مشکلی در ورود به سیستم وجود داشت!"
+
+#: inc/class/user-login-sing-up.php:57
+msgid "You entered!"
+msgstr "وارد شدید!"
+
+#: inc/class/user-login-sing-up.php:120
+msgid "You entered the wrong code!"
+msgstr "کد رو اشتباه وارد کردید!"
+
+#: inc/class/user-login-sing-up.php:128
+msgid "Error! An error has occurred"
+msgstr "خطا! خطایی رخ داده است"
+
+#: inc/templates/plwn-login-form-template.php:41
+msgid "Login and membership form"
+msgstr "فرم ورود و عضویت"
+
+#: inc/templates/plwn-login-form-template.php:46
+msgid "Send verification code"
+msgstr "ارسال کد تایید"
+
+#: inc/templates/plwn-login-form-template.php:47
+msgid "Resend Sms: "
+msgstr "ارسال مجدد:"
+
+#: inc/templates/plwn-login-form-template.php:48
+msgid "Resend Sms"
+msgstr "ارسال مجدد"
+
+#. Plugin Name of the plugin/theme
+msgid "sign in/up with number"
+msgstr "ورود و ثبت نام با شماره"
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "https://www.linkedin.com/in/parsa-rajabi-nanami/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"This plugin provides you with a short code so that you can use it to call "
+"your login and membership form."
+msgstr ""
+"این افزونه یک کد کوتاه در اختیار شما قرار می دهد تا بتوانید از آن برای تماس "
+"با فرم ورود و عضویت خود استفاده کنید."
+
+#. Author of the plugin/theme
+msgid "Parsa Rajabi"
+msgstr "پارسا رجبی"
+
+#~ msgid "this is setting"
+#~ msgstr "این تنظیم است"

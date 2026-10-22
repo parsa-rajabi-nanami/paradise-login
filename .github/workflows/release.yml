@@ -1,0 +1,115 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+
+jobs:
+  php-lint:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version: ['7.3', '8.5']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          coverage: none
+      - name: Lint all PHP files
+        run: find . -type f -name '*.php' -print0 | xargs -0 -n1 php -l
+
+  release:
+    needs: php-lint
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      PLUGIN_DIR: paradise-login-with-numbers
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify tag and plugin versions
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          python3 - "$RELEASE_TAG" <<'PY'
+          import re
+          import sys
+          from pathlib import Path
+
+          tag = sys.argv[1]
+          source = Path("paradise-login-with-numbers.php").read_text()
+          header = re.search(r"^\s*\* Version: ([^\s]+)", source, re.MULTILINE)
+          constant = re.search(r"define\('PARADISE_LOGIN_VERSION',\s*'([^']+)'\)", source)
+          if not header or not constant:
+              raise SystemExit("Plugin header version or version constant is missing")
+          expected_tag = "v" + header.group(1)
+          if tag != expected_tag or header.group(1) != constant.group(1):
+              raise SystemExit(
+                  f"Version mismatch: tag={tag}, header={header.group(1)}, constant={constant.group(1)}"
+              )
+          PY
+      - name: Build and validate plugin ZIP
+        run: |
+          set -euo pipefail
+          stage="$RUNNER_TEMP/plugin-release"
+          mkdir -p "$stage/$PLUGIN_DIR"
+          rsync -a --exclude-from=.distignore ./ "$stage/$PLUGIN_DIR/"
+          (cd "$stage" && zip -qr "$GITHUB_WORKSPACE/$PLUGIN_DIR.zip" "$PLUGIN_DIR")
+          python3 - "$GITHUB_WORKSPACE/$PLUGIN_DIR.zip" "$PLUGIN_DIR" <<'PY'
+          import sys
+          import zipfile
+          from pathlib import PurePosixPath
+
+          archive, root = sys.argv[1:]
+          with zipfile.ZipFile(archive) as package:
+              names = package.namelist()
+          if not names or any(not name.startswith(root + "/") for name in names):
+              raise SystemExit("ZIP must contain exactly one root folder")
+          if root + "/paradise-login-with-numbers.php" not in names:
+              raise SystemExit("Main plugin file is missing from the ZIP")
+          for name in names:
+              relative = name[len(root) + 1:]
+              parts = PurePosixPath(relative).parts
+              if (relative == "AGENTS.md" or relative.startswith((".github/", "docs/"))
+                      or any(part.startswith(".") for part in parts)):
+                  raise SystemExit(f"Development file found in ZIP: {name}")
+          for required in ("README.md", "LICENSE"):
+              if root + "/" + required not in names:
+                  raise SystemExit(f"Required package file is missing: {required}")
+          PY
+      - name: Prepare release notes from CHANGELOG.md
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          python3 - "$RELEASE_TAG" "$RUNNER_TEMP/release-notes.md" <<'PY'
+          import re
+          import sys
+          from pathlib import Path
+
+          tag, output = sys.argv[1:]
+          version = tag[1:]
+          text = Path("CHANGELOG.md").read_text()
+          headings = list(re.finditer(r"^## \[([^\]]+)\].*$", text, re.MULTILINE))
+          sections = {}
+          for index, heading in enumerate(headings):
+              end = headings[index + 1].start() if index + 1 < len(headings) else len(text)
+              sections[heading.group(1)] = text[heading.start():end].strip()
+          section = sections.get(version) or sections.get("Unreleased")
+          if not section:
+              raise SystemExit("No matching version or [Unreleased] section in CHANGELOG.md")
+          section = re.sub(r"^## \[[^\]]+\]", f"## [{version}]", section, count=1)
+          Path(output).write_text(section + "\n")
+          PY
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: ${{ github.ref_name }}
+          draft: true
+          body_path: ${{ runner.temp }}/release-notes.md
+          files: ${{ github.workspace }}/paradise-login-with-numbers.zip

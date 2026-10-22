@@ -1,0 +1,20 @@
+# OS and editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+.history/
+
+# Dependencies and generated files
+vendor/
+node_modules/
+build/
+dist/
+*.zip
+*.log
+logs/
+.env*
